@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30CB8B320ECC7A700EB1F20 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30CB8B220ECC7A700EB1F20 /* SessionStore.swift */; };
 		B346D24C20C9420C005AA283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346D24B20C9420C005AA283 /* AppDelegate.swift */; };
 		B346D24E20C9420C005AA283 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346D24D20C9420C005AA283 /* LoginViewController.swift */; };
 		B346D25120C9420C005AA283 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B346D24F20C9420C005AA283 /* Main.storyboard */; };
@@ -17,6 +18,10 @@
 		B346D27D20C96CC4005AA283 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346D27C20C96CC4005AA283 /* RegisterViewController.swift */; };
 		B346D27F20C96D8A005AA283 /* BucketListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346D27E20C96D8A005AA283 /* BucketListTableViewController.swift */; };
 		B346D28120C96E05005AA283 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346D28020C96E05005AA283 /* ItemTableViewController.swift */; };
+		B365B43520E4F9B400231E6E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365B43420E4F9B400231E6E /* NetworkClient.swift */; };
+		B391E78B20E3C069004B1A5D /* BucketlistDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B391E78A20E3C069004B1A5D /* BucketlistDataModel.swift */; };
+		B391E78D20E3C1E9004B1A5D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B391E78C20E3C1E9004B1A5D /* Item.swift */; };
+		B3F9EDB220E2305B00D537BA /* BucketlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F9EDB120E2305B00D537BA /* BucketlistTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B30CB8B220ECC7A700EB1F20 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		B346D24820C9420C005AA283 /* bucketlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bucketlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B346D24B20C9420C005AA283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B346D24D20C9420C005AA283 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,10 @@
 		B346D27C20C96CC4005AA283 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B346D27E20C96D8A005AA283 /* BucketListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTableViewController.swift; sourceTree = "<group>"; };
 		B346D28020C96E05005AA283 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		B365B43420E4F9B400231E6E /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		B391E78A20E3C069004B1A5D /* BucketlistDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistDataModel.swift; sourceTree = "<group>"; };
+		B391E78C20E3C1E9004B1A5D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B3F9EDB120E2305B00D537BA /* BucketlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B30CB8B120ECC69200EB1F20 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				B30CB8B220ECC7A700EB1F20 /* SessionStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		B346D23F20C9420C005AA283 = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +121,14 @@
 		B346D24A20C9420C005AA283 /* bucketlist */ = {
 			isa = PBXGroup;
 			children = (
-				B346D24B20C9420C005AA283 /* AppDelegate.swift */,
 				B346D27B20C95256005AA283 /* Controller */,
+				B391E78920E3C01D004B1A5D /* DataModels */,
+				B391E78E20E3C268004B1A5D /* Networking */,
+				B30CB8B120ECC69200EB1F20 /* Store */,
 				B346D27A20C9524D005AA283 /* View */,
 				B346D27920C95235005AA283 /* Supporting files */,
+				B346D25720C9420D005AA283 /* Info.plist */,
+				B346D24B20C9420C005AA283 /* AppDelegate.swift */,
 			);
 			path = bucketlist;
 			sourceTree = "<group>";
@@ -132,7 +154,6 @@
 		B346D27920C95235005AA283 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				B346D25720C9420D005AA283 /* Info.plist */,
 				B346D25220C9420D005AA283 /* Assets.xcassets */,
 				B346D25420C9420D005AA283 /* LaunchScreen.storyboard */,
 			);
@@ -154,8 +175,26 @@
 				B346D27C20C96CC4005AA283 /* RegisterViewController.swift */,
 				B346D27E20C96D8A005AA283 /* BucketListTableViewController.swift */,
 				B346D28020C96E05005AA283 /* ItemTableViewController.swift */,
+				B3F9EDB120E2305B00D537BA /* BucketlistTableViewCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B391E78920E3C01D004B1A5D /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				B391E78A20E3C069004B1A5D /* BucketlistDataModel.swift */,
+				B391E78C20E3C1E9004B1A5D /* Item.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		B391E78E20E3C268004B1A5D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B365B43420E4F9B400231E6E /* NetworkClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,10 +329,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B346D28120C96E05005AA283 /* ItemTableViewController.swift in Sources */,
+				B3F9EDB220E2305B00D537BA /* BucketlistTableViewCell.swift in Sources */,
 				B346D27D20C96CC4005AA283 /* RegisterViewController.swift in Sources */,
 				B346D24E20C9420C005AA283 /* LoginViewController.swift in Sources */,
+				B391E78D20E3C1E9004B1A5D /* Item.swift in Sources */,
+				B365B43520E4F9B400231E6E /* NetworkClient.swift in Sources */,
+				B30CB8B320ECC7A700EB1F20 /* SessionStore.swift in Sources */,
 				B346D24C20C9420C005AA283 /* AppDelegate.swift in Sources */,
 				B346D27F20C96D8A005AA283 /* BucketListTableViewController.swift in Sources */,
+				B391E78B20E3C069004B1A5D /* BucketlistDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
