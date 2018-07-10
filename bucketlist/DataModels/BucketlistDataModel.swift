@@ -11,6 +11,4 @@ import Foundation
 class BucketlistDataModel {
     var bucketTitle = ""
     var items = [Item]()
-    
-    
 }

@@ -21,6 +21,7 @@
 		B365B43520E4F9B400231E6E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365B43420E4F9B400231E6E /* NetworkClient.swift */; };
 		B391E78B20E3C069004B1A5D /* BucketlistDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B391E78A20E3C069004B1A5D /* BucketlistDataModel.swift */; };
 		B391E78D20E3C1E9004B1A5D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B391E78C20E3C1E9004B1A5D /* Item.swift */; };
+		B3F708EB20F3BC7B0044D3AC /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F708EA20F3BC7B0044D3AC /* ItemTableViewCell.swift */; };
 		B3F9EDB220E2305B00D537BA /* BucketlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F9EDB120E2305B00D537BA /* BucketlistTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		B365B43420E4F9B400231E6E /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		B391E78A20E3C069004B1A5D /* BucketlistDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistDataModel.swift; sourceTree = "<group>"; };
 		B391E78C20E3C1E9004B1A5D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B3F708EA20F3BC7B0044D3AC /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		B3F9EDB120E2305B00D537BA /* BucketlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +178,7 @@
 				B346D27E20C96D8A005AA283 /* BucketListTableViewController.swift */,
 				B346D28020C96E05005AA283 /* ItemTableViewController.swift */,
 				B3F9EDB120E2305B00D537BA /* BucketlistTableViewCell.swift */,
+				B3F708EA20F3BC7B0044D3AC /* ItemTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				B346D24E20C9420C005AA283 /* LoginViewController.swift in Sources */,
 				B391E78D20E3C1E9004B1A5D /* Item.swift in Sources */,
 				B365B43520E4F9B400231E6E /* NetworkClient.swift in Sources */,
+				B3F708EB20F3BC7B0044D3AC /* ItemTableViewCell.swift in Sources */,
 				B30CB8B320ECC7A700EB1F20 /* SessionStore.swift in Sources */,
 				B346D24C20C9420C005AA283 /* AppDelegate.swift in Sources */,
 				B346D27F20C96D8A005AA283 /* BucketListTableViewController.swift in Sources */,

@@ -1,20 +1,17 @@
 //
-//  BucketlistTableViewCell.swift
+//  TableViewCell.swift
 //  bucketlist
 //
-//  Created by Clement  Wekesa on 26/06/2018.
+//  Created by Clement  Wekesa on 09/07/2018.
 //  Copyright © 2018 Clement  Wekesa. All rights reserved.
 //
 
 import UIKit
 
-class BucketlistTableViewCell: UITableViewCell {
+class ItemTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var bucketlistTitle: UILabel!
-    @IBOutlet weak var bucketlistComplete: UILabel!
-    @IBOutlet weak var bucketlistProgress: UIView!
-    
+    @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var itemDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

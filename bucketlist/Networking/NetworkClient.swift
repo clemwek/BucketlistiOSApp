@@ -11,15 +11,58 @@ import Foundation
 class NetworkClient {
     static let standard = NetworkClient()
     let baseURL = URL(string: "https://clembucketlistapi.herokuapp.com")
+    let defaults = UserDefaults.standard
     
     let config = URLSessionConfiguration.default
-    //    var componentURL = URLComponents(url: baseURL!, resolvingAgainstBaseURL: true)
     
     private init() {
         
     }
     
-    func post(url: String, data: [String: String], completion: @escaping (_ succes: Bool) -> (Void)) {
+    func get(url: String, query: [String: String]?, completion: @escaping (_ status: Bool, _ data: Any? ) -> ()) {
+        
+        let session = URLSession(configuration: config)
+        
+        let relativeURL = URL(string: url, relativeTo: baseURL)
+        guard
+            let url = URLComponents(url: relativeURL!, resolvingAgainstBaseURL: true)?.url,
+            let token = defaults.string(forKey: "token")
+            else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            guard
+                error == nil,
+                let responseData = data
+                else { return completion(false, nil) }
+            
+            do {
+                guard
+                    let formattedData = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any]
+                    else {
+                        completion(false, nil)
+                        print("Error trying to convert data to json")
+                        return
+                }
+                guard
+                    let statusCode = (response as? HTTPURLResponse)?.statusCode
+                    else { return }
+                if String(statusCode).first == "2" {
+                    return completion(true, formattedData)
+                }
+                completion(false, nil)
+            } catch {
+                completion(false, nil)
+            }
+        }
+        task.resume()
+        
+    }
+    
+    func post(url: String, data: [String: String], completion: @escaping (_ succes: Bool, _ data: Any?) -> (Void)) {
         
         let session = URLSession(configuration: config)
         
@@ -38,24 +81,15 @@ class NetworkClient {
         
         let task = session.dataTask(with: request) { data, response, error in
             guard
-                error == nil else {
-                    print(error!)
-                    completion(false)
-                    return
-            }
-            
-            guard
+                error == nil,
                 let responseData = data
                 else {
-                    print("Error, did not receive data")
-                    completion(false)
-                    return
-            }
+                    return completion(false, nil) }
             do {
                 guard
                     let formattedData = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any]
                     else {
-                        completion(false)
+                        completion(false, nil)
                         print("Error trying to convert data to json")
                         return
                 }
@@ -63,18 +97,13 @@ class NetworkClient {
                     let statusCode = (response as? HTTPURLResponse)?.statusCode
                     else { return }
                 if String(statusCode).first == "2" {
-                    completion(true)
-                    print(formattedData)
+                    return completion(true, formattedData)
                 }
-                completion(false)
-                print(formattedData)
+                completion(false, nil)
             } catch {
-                completion(false)
-                print(error)
+                completion(false, nil)
             }
         }
-        
         task.resume()
-        
     }
 }

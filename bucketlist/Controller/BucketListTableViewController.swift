@@ -9,49 +9,45 @@
 import UIKit
 
 class BucketListTableViewController: UITableViewController {
+    
+    var buckets: [[String: Any]] = [[:]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 88.0
-
+        
+        NetworkClient.standard.get(url: "/bucketlists", query: nil) { (status, data) in
+            guard
+            let data = data as? [String: Any]
+                else { return }
+            
+            DispatchQueue.main.sync {
+                self.buckets = data["bucketlist"] as! [[String: Any]]
+                self.tableView.reloadData()
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
-        
+        return buckets.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BucketlistTableViewCell
         
-        // Configure the cell...
+        cell.bucketlistTitle.text = buckets[indexPath.row]["name"] as? String
         
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ItemTableViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.items = buckets[indexPath.row]["items"] as? [[String: Any]]
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
 }

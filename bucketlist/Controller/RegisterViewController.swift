@@ -10,7 +10,6 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -18,8 +17,6 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func registerClicked(_ sender: UIButton) {
@@ -33,7 +30,7 @@ class RegisterViewController: UIViewController {
         }
         
         let registerDetails = ["username": username, "password": password, "email": email]
-        NetworkClient.standard.post(url: "/auth/register", data: registerDetails) { (status) -> (Void) in
+        NetworkClient.standard.post(url: "/auth/register", data: registerDetails) { (status, data) -> (Void) in
             if status {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "goToBucketlist", sender: nil)
